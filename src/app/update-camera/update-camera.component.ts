@@ -33,10 +33,12 @@ export class UpdateCameraComponent implements OnInit {
       this.camera = data;
     }, error => console.log(error));
   }
+ submitted = false;
 
   onSubmit(){
     this.cameraService.updateCamera(this.id,this.camera).subscribe(data=>{
       this.goToCameraList();
+      this.submitted = true;
     }, error => console.log(error));
   }
 

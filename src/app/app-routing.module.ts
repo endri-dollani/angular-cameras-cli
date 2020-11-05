@@ -34,9 +34,9 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(routes),
-    FormsModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   exports: [RouterModule]
 })

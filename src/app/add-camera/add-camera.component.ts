@@ -32,11 +32,13 @@ export class AddCameraComponent implements OnInit {
       (error) => console.log(error)
     );
   }
+   submitted = false;
 
   gotToCameraList() {
     this.router.navigate(['/cameras']);
   }
   onSubmit() {
     this.saveCamera();
+     this.submitted = true;
   }
 }

@@ -1,13 +1,25 @@
 <div class="container">
-  <form (ngSubmit)="onSubmit()">
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
     <div>
       <label>Name</label>
-      <input type="text" id="name" [(ngModel)]="camera.name" name="name" />
+      <input type="text" id="name" required minlength="4" required [(ngModel)]="camera.name" name="name"           
+      #name="ngModel"/>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+             class="alert">
+          Name is required
+        </div>
     </div>
+    
 
     <div>
       <label>Model</label>
-      <input type="text" id="model" [(ngModel)]="camera.model" name="model" />
+      <input type="text" id="model" required [(ngModel)]="camera.model" name="model" 
+      #model="ngModel" />
+      <div *ngIf="model.invalid && (model.dirty || model.touched)"
+             class="alert">
+          Model name is required
+        </div>
     </div>
 
     <div>
@@ -17,18 +29,22 @@
         required
         [(ngModel)]="camera.resolution"
         name="resolution"
-      >
-        <option *ngFor="let res of resolutions" [value]="res">
+         #resolution="ngModel">
+        <option *ngFor="let res of resolutions" [value]="res" >
           {{ res }}
-        </option>
+        </option> 
       </select>
+        <div [hidden]="resolution.valid || resolution.pristine" class="alert">
+          Power is required
+        </div>
     </div>
 
     <div>
       <label>ip</label>
-      <input type="text" id="ip" [(ngModel)]="camera.ip" name="ip" />
+      <input type="text" id="ip" [(ngModel)]="camera.ip" name="ip" required/>
     </div>
 
-    <input type="submit" name="Submit" />
+    <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
   </form>
+  </div>
 </div>

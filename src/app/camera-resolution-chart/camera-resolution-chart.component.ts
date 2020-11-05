@@ -23,48 +23,72 @@ export class CameraResolutionChartComponent implements OnInit {
   constructor(private cameraService: CameraService) {}
 
   private getCameras() {
-    this.cameraService.getCameras().subscribe((data) => {
-      this.cameras = data;
-    },error=>console.log(error));
+    this.cameraService.getCameras().subscribe(
+      (data) => {
+        this.cameras = data;
+        this.initRetrival();
+        this.displayChart();
+      },
+      (error) => console.log(error)
+    );
   }
 
   getNumber(s: string): number {
     let counter = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < this.cameras.length; i++) {
       if (this.cameras[i].resolution === s) {
         counter++;
       }
     }
     return counter;
   }
-  private  d:number[] = [];
-
-  initRetrival() {
-    //this.d = [
-      console.log(this.getNumber(this.resolutions[0]));
-      
-    //];
+  private d: number[] = [];
+  
+  initRetrival():void {
+    this.d = [
+        this.getNumber(this.resolutions[0]),
+        this.getNumber(this.resolutions[1]),
+        this.getNumber(this.resolutions[2]),
+        this.getNumber(this.resolutions[3]),
+        this.getNumber(this.resolutions[4]),
+        this.getNumber(this.resolutions[5])
+    ];
   }
   ngOnInit(): void {
     this.getCameras();
-    this.initRetrival();
+  }
+  
 
+  displayChart(): void {
     var myChart = new Chart('myChart', {
       type: 'pie',
       data: {
-        labels: [this.resolutions[0], this.resolutions[1], this.resolutions[2], this.resolutions[3],
-        this.resolutions[4],this.resolutions[5]],
+        labels: [
+          this.resolutions[0],
+          this.resolutions[1],
+          this.resolutions[2],
+          this.resolutions[3],
+          this.resolutions[4],
+          this.resolutions[5],
+        ],
         datasets: [
           {
             label: '# of Votes',
-            data: [this.d[0], this.d[1], this.d[2], this.d[3], this.d[4], this.d[5]],
+            data: [
+              this.d[0],
+              this.d[1],
+              this.d[2],
+              this.d[3],
+              this.d[4],
+              this.d[5],
+            ],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 99, 132, 0.8)',
+              'rgba(54, 162, 235, 0.8)',
+              'rgba(255, 206, 86, 0.8)',
+              'rgba(31, 155, 18, 0.8)',
+              'rgba(20, 40, 219, 0.8)',
+              'rgba(37, 105, 90, 0.8)',
             ],
             borderColor: [
               'rgba(255, 99, 132, 1)',
