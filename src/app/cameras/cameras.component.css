@@ -1,0 +1,88 @@
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 15px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4c5eaf;
+  color: white;
+}
+.container {
+  margin-top: 5% ;
+  position:relative;
+}
+ #table-scroll {
+  height: 500px;
+  
+  overflow:auto;  
+  margin-top:20px;
+} 
+
+h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.center-this {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-bottom: 30px;
+}
+
+div > a:link,
+div > a:visited {
+  background-color: white;
+  color: black;
+  border: 2px solid green;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+div > a:hover,
+div > a:active {
+  background-color: green;
+  color: white;
+}
+
+
+
+#del {
+  background-color: rgb(92, 9, 3);
+  color: white;
+  margin-right: 5px;
+}
+
+#edit {
+  background-color: rgba(0, 95, 29, 0.952);;
+  color: white;
+  margin-right: 5px;
+
+}
+
+#details{
+  background-color: rgb(5, 45, 78);
+  color: white;
+}

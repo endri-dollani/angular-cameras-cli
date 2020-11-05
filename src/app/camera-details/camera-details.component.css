@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .center-this {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 30px;
+  }
+
+  .container {
+    padding-top: 5%;
+    margin-top: 5%;
+    padding-bottom: 0;
+    padding-top: 0;
+  }

@@ -1,0 +1,24 @@
+<div class="container">
+  <div id="table-scroll">
+    <table id="customers">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Model</th>
+      <th>Resolution</th>
+      <th>IP</th>
+      <th>Action</th>
+      <tr *ngFor="let camera of cameras">
+        <td>{{ camera.id }}</td>
+        <td>{{ camera.name }}</td>
+        <td>{{ camera.model }}</td>
+        <td>{{ camera.resolution }}</td>
+        <td>{{ camera.ip }}</td>
+        <td style="width: 21%">
+          <button (click)="deleteCamera(camera.id)" id="del">Delete</button>
+          <button (click)="updateCamera(camera.id)" id="edit">Update</button>
+          <button (click)="cameraDetails(camera.id)" id="details">Details</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
